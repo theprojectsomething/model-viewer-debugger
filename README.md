@@ -73,7 +73,7 @@ Also keep in mind that [threejs](https://www.npmjs.com/package/three) isn't avai
 
 ## Versioning and compatability
 
-With Google's groovy `<model-viewer>` component still under development, it's incredibly likely that this debugger will intermittently stop working as that project evolves. To keep things simple I'll be doing my best to keep the versioning in sync (compatability-wise) between the two.
+With Google's groovy `<model-viewer>` component still under development, it's incredibly likely that this debugger will intermittently stop working as that project evolves. To keep things simple I'll be doing my best to keep the major and minor versioning in sync (compatability-wise) between the two.
 
 |               | `<model-viewer>` | `[data-debug]` |
 | -------- | --- | --- |
