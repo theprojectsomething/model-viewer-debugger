@@ -52,6 +52,9 @@ const fn = {
   },
   
   process(viewer) {
+    // check if viewer src has already been processed
+    if (viewer.src === viewer.$el.src) return;
+
     // if THREE isn't loaded, add to the queue
     if (!window.THREE) {
       props.queue = (props.queue || []).concat(viewer || []);
@@ -87,6 +90,9 @@ const fn = {
     
     // if model is required (but isn't ready) wait for subsequent 'model-visibility' call
     if (!fn.model(viewer)) return;
+
+    // set a flag to show this src has been processed
+    viewer.src = viewer.$el.src;
 
     // initialise each helper
     fn.camera.init(viewer);
