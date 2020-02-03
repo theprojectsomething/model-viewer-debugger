@@ -1,0 +1,16 @@
+{
+  "name": "model-viewer-debugger",
+  "version": "0.8.2",
+  "description": "Easily display scene debugging layers over interactive @google/model-viewer 3D models on the web and in AR!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "model-viewer",
+    "threejs",
+    "gltf"
+  ],
+  "author": "theprojectsomething",
+  "license": "ISC"
+}
