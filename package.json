@@ -1,6 +1,6 @@
 {
   "name": "model-viewer-debugger",
-  "version": "0.8.2",
+  "version": "0.8.1",
   "description": "Easily display scene debugging layers over interactive @google/model-viewer 3D models on the web and in AR!",
   "main": "index.js",
   "scripts": {
@@ -12,5 +12,13 @@
     "gltf"
   ],
   "author": "theprojectsomething",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theprojectsomething/model-viewer-debugger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theprojectsomething/model-viewer-debugger/issues"
+  },
+  "homepage": "https://github.com/theprojectsomething/model-viewer-debugger#readme"
 }
