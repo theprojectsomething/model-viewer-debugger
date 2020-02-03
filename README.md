@@ -2,9 +2,11 @@
 
 `<model-viewer data-debug>` is a visual debugging layer on top of [@google/model-viewer](https://www.npmjs.com/package/@google/model-viewer).
 
+![Visually debugging model-viewer component](https://raw.githubusercontent.com/theprojectsomething/model-viewer-debugger/master/screenshot.png)
+
 ## Installing
 
-The `<model-viewer data-debug>` library is intended for development purposes only and can be included directly via various CDNs such as [unpkg.com](https://unpkg.com)
+The `<model-viewer data-debug>` library is intended for development purposes and can be included directly via various CDNs such as [unpkg.com](https://unpkg.com):
 ```html
 <!-- consider including the latest <model-viewer> build from the website -->
 <script async src="https://modelviewer.dev/node_modules/@google/model-viewer/dist/model-viewer.js"></script>
@@ -36,7 +38,7 @@ On page load, the debugger will automatically apply to any `<model-viewer>` comp
 </model-viewer>
 ```
 
-To refresh, remove, or include new `<model-viewer>` components after page load, you can use the `ModelViewerDebugger` global:
+To refresh, remove, or include new `<model-viewer>` components after page load, you can use the `ModelViewerDebugger` available in the global scope:
 
 ```js
 // clean up and reload debgugging on all <model-viewer> components
@@ -55,15 +57,24 @@ ModelViewerDebugger.stats();
 ModelViewerDebugger.stats(document.querySelector('model-viewer'));
 ```
 
-## Browser Support
 
-`<model-viewer data-debug>` is intended for use in your bleeding-edge development environment, and as such very little attention has been paid to browser support. Please feel free to suggest fixes for any glaringly obvious cross-browser issues. IE11 is not supported.
+## Browser support & considerations
 
-|               | <img src="https://github.com/alrra/browser-logos/raw/master/src/chrome/chrome_32x32.png" width="16"> Chrome | <img src="https://github.com/alrra/browser-logos/raw/master/src/firefox/firefox_32x32.png" width="16"> Firefox | <img src="https://github.com/alrra/browser-logos/raw/master/src/safari/safari_32x32.png" width="16"> Safari | <img src="https://github.com/alrra/browser-logos/raw/master/src/edge/edge_32x32.png" width="16"> Edge | <img src="https://github.com/alrra/browser-logos/raw/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_32x32.png" width="16"> IE11 |
+`<model-viewer data-debug>` is really only intended for use in your bleeding-edge development environment(!) and as such very little attention has been paid to browser support. Please feel free to suggest fixes for any glaringly obvious cross-browser issues. IE11 is not supported.
+
+
+|               | ![Chrome](https://github.com/alrra/browser-logos/raw/master/src/chrome/chrome_32x32.png) | ![Firefox](https://github.com/alrra/browser-logos/raw/master/src/firefox/firefox_32x32.png) | ![Safari](https://github.com/alrra/browser-logos/raw/master/src/safari/safari_32x32.png) | ![Edge](https://github.com/alrra/browser-logos/raw/master/src/edge/edge_32x32.png) | ![IE11](https://github.com/alrra/browser-logos/raw/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_32x32.png) |
 | -------- | --- | --- | --- | --- | --- |
-| Desktop  | ✅  | ✅  | ✅  | ✅  | N/A  |
-| Mobile   | ✅  | ✅  | ✅  | ✅  | N/A |
+| Desktop  | ✅  | ✅  | ✅  | ✅  | ❌ |
+| Mobile   | ✅  | ✅  | ✅  | ✅  | ❌ |
 
-## Versioning and ongoing development
+Also keep in mind that [threejs](https://www.npmjs.com/package/three) isn't available on the global scope (it's a dependency of `<model-viewer>`) then it will be downloaded from the [jsDelivr CDN](https://cdn.jsdelivr.net/gh/mrdoob/three.js/build/three.js) at runtime. Not fun in a build environment!
 
-With Google's fantastic `<model-viewer>` component still under development, it's incredibly likely that this debugger will intermittently stop working as that project evolves. To keep things simple I'll be keeping the versioning in sync between the two. If things get way out of hand I'll just take this library down.
+
+## Versioning and compatability
+
+With Google's groovy `<model-viewer>` component still under development, it's incredibly likely that this debugger will intermittently stop working as that project evolves. To keep things simple I'll be doing my best to keep the versioning in sync (compatability-wise) between the two.
+
+|               | `<model-viewer>` | `[data-debug]` |
+| -------- | --- | --- |
+| **Latest**  | [![NPM](https://img.shields.io/npm/v/@google/model-viewer.svg)](https://www.npmjs.com/package/@google/model-viewer) | [![NPM](https://img.shields.io/npm/v/model-viewer-debugger.svg)](https://www.npmjs.com/package/model-viewer-debugger)
