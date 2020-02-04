@@ -1,11 +1,23 @@
 const ModelViewerDebugger = (() => {
 // property store
-const props = { THREEv: 'r113' };
+const props = { v: '0.8', THREEv: 'r113' };
 // method store
 const fn = {
 
   // refresh debugging on all model viewers
   refresh() {
+
+    // say hello
+    if (!props.hello) {
+      props.hello = true;
+      console.log(
+        '%cModelViewerDebugger\n%c<model-viewer data-debug="annotations camera model">', 'color:yellow;', 'color:#ff5252',
+        `\n---\nAPI v${props.v}:`, ModelViewerDebugger,
+        '\n---\nCurrently under development. Improvements and suggestions welcome:',
+        '\nhttps://github.com/theprojectsomething/model-viewer-debugger',
+      );
+    }
+
     // clean up any leftovers
     fn.reset();
 
@@ -15,10 +27,10 @@ const fn = {
     .map($el => ({ $el }));
 
     // if no viewers exist ...
-    if (!props.viewers.length) return fn.log('0 <model-viewer> components found', true);
+    if (!props.viewers.length) return fn.log('<model-viewer> components found: 0', true);
 
     // log the viewers count
-    fn.log(props.viewers.length + ' <model-viewer> components found');
+    fn.log(['<model-viewer> components found:', props.viewers.length]);
 
     // check for the THREE library (and load where unavailable)
     fn.loadTHREE();
@@ -125,7 +137,7 @@ const fn = {
     // warn the users!
     if (!props.warned) {
       props.warned = true;
-      fn.log('the model helper is buggy, feel free to suggest a fix!', true);
+      fn.log('the model debugger is especially buggy, fixes welcome!', true);
     }
     
     // find the model
@@ -301,7 +313,7 @@ const fn = {
   },
 
   log(msg, warn) {
-    console[warn ? 'warn' : 'log'].apply(this, ['[MODEL-VIEWER-HELPER]'].concat(msg));
+    console[warn ? 'warn' : 'log'].apply(this, ['%cModelViewerDebugger', 'font-weight:bolder'].concat(msg));
   },
 };
 
