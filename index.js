@@ -1,6 +1,6 @@
 const ModelViewerDebugger = (() => {
 // property store
-const props = { THREEv: 'r113' };
+const props = { v: '0.8', THREEv: 'r113' };
 // method store
 const fn = {
 
@@ -125,7 +125,7 @@ const fn = {
     // warn the users!
     if (!props.warned) {
       props.warned = true;
-      fn.log('the model helper is buggy, feel free to suggest a fix!', true);
+      fn.log('the model debugger is especially buggy, fixes welcome!', true);
     }
     
     // find the model
@@ -307,6 +307,14 @@ const fn = {
 
 // initialise on load
 document.addEventListener('DOMContentLoaded', fn.refresh);
+
+// say hello
+console.log(
+  '%cModelViewerDebugger%c: debug annotations, camera and models\n%c<model-viewer data-debug="annotations camera model">', 'color:yellow;', '', 'color:#ff5252',
+  `\n---\nAPI v${props.v}:`, ModelViewerDebugger,
+  '\n---\nCurrently under development. Improvements and suggestions welcome:',
+  '\nhttps://github.com/theprojectsomething/model-viewer-debugger',
+);
 
 // return some minor functionality
 return {
