@@ -1,6 +1,6 @@
 {
   "name": "model-viewer-debugger",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "Easily display scene debugging layers over interactive @google/model-viewer 3D models on the web and in AR!",
   "main": "index.js",
   "scripts": {
