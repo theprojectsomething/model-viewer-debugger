@@ -292,8 +292,8 @@ const fn = {
     while (viewer.object3D && viewer.object3D.children.length) {
       viewer.object3D.remove(viewer.object3D.children[0]);
     }
-    if (viewer.$output && viewer.$output.offsetParent) {
-      viewer.$output.offsetParent.removeChild(viewer.$output);
+    if (viewer.$output && viewer.$output.parentNode) {
+      viewer.$output.parentNode.removeChild(viewer.$output);
       delete viewer.$output;
     }
     delete viewer.annotations;
