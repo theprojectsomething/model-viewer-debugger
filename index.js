@@ -318,7 +318,13 @@ const fn = {
 };
 
 // initialise on load
-document.addEventListener('DOMContentLoaded', fn.refresh);
+if (document.readyState === 'complete' 
+     || document.readyState === 'loaded' 
+     || document.readyState === 'interactive') {
+  setTimeout(fn.refresh);
+} else {
+  document.addEventListener('DOMContentLoaded', fn.refresh);
+}
 
 // return some minor functionality
 return {
